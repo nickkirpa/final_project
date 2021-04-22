@@ -1,11 +1,23 @@
+/* global require */
 let autocomplete;
-
 
 let map;
 var globalDate;
 var globalData;
 var globalI;
 var modI;
+var today = new Date()
+
+$.getJSON('http://history.muffinlabs.com/date/'+ (today.getMonth()+1) +'/'+(today.getDate()), function(data){
+    var what_happened = data;
+    $('#what').text($('#what').text() + ' ' + today.getDate() + '.' + parseInt(today.getMonth()+1) + ' в ' + what_happened['data']['Events'][0]['year'] + ' році')
+    $('#event').text(what_happened['data']['Events'][10]['links'][0]['title'])
+    a = document.getElementById('event')
+    a.href = String(what_happened['data']['Events'][10]['links'][0]['link'])
+    console.log(what_happened);
+});
+
+
 
 function getNfillForecast(lat, lng) {
     var curentDate = new Date();
@@ -14,7 +26,7 @@ function getNfillForecast(lat, lng) {
     globalI = defineIter(curentDate.getHours());
     console.log(globalI);
 
-
+    
 
 
     $.getJSON('http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lng + '&cnt=' + globalI + '&units=metric&appid=f1c4ea79129faeebfbac6455394d7b12', function (data) {
@@ -306,3 +318,8 @@ function initMap() {
         });
     }
 }
+
+
+
+
+

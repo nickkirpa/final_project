@@ -7,6 +7,17 @@
 /*=========================================== 
  * Importing CSS Libraries
  *===========================================*/
+#what{
+    margin-left: 40%;
+    margin-top:20px;
+    float:right;
+}
+
+#event{
+    float:right;
+    margin-left:40%;
+    margin-bottom:5px;
+}
 article,
 aside,
 details,

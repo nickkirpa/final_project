@@ -1,11 +1,8 @@
-/**
- * Created by chaika on 09.02.16.
- */
-
 var express = require('express');
 var path = require('path');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+const translate = require('google-translate-api')
       
 
 
@@ -32,4 +29,5 @@ function startServer(port) {
     });
 }
 
-exports.startServer = startServer;
+module.exports.translate = translate;
+module.exports.startServer = startServer;
