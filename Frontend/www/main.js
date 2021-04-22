@@ -8,12 +8,16 @@ var globalI;
 var modI;
 var today = new Date()
 
-$.getJSON('http://history.muffinlabs.com/date/'+ (today.getMonth()+1) +'/'+(today.getDate()), function(data){
+$.getJSON('http://history.muffinlabs.com/date/'+ (today.getMonth() + 1) +'/'+(today.getDate()), function(data){
     var what_happened = data;
-    $('#what').text($('#what').text() + ' ' + today.getDate() + '.' + parseInt(today.getMonth()+1) + ' в ' + what_happened['data']['Events'][0]['year'] + ' році')
-    $('#event').text(what_happened['data']['Events'][10]['links'][0]['title'])
+    var month = parseInt(today.getMonth()+1)
+    if (month < 10){
+        month = "0" + month;
+    }
+    $('#what').text($('#what').text() + ' ' + today.getDate() + '/' + month + ' в ' + what_happened['data']['Events'][what_happened['data']['Events'].length-1]['year'] + ' році')
+    $('#event').text(what_happened['data']['Events'][what_happened['data']['Events'].length-1]['links'][0]['title'])
     a = document.getElementById('event')
-    a.href = String(what_happened['data']['Events'][10]['links'][0]['link'])
+    a.href = String(what_happened['data']['Events'][what_happened['data']['Events'].length-1]['links'][0]['link'])
     console.log(what_happened);
 });
 
@@ -319,7 +323,33 @@ function initMap() {
     }
 }
 
+var sources = [
+    "https://i.pinimg.com/originals/d2/43/1f/d2431fead76d82e16a11a7bd79986cb6.jpg",
+    "https://image.shutterstock.com/image-photo/mountains-under-mist-morning-amazing-260nw-1725825019.jpg",
+    "https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270",
+    "https://dailydressme.com/_next/image?url=https%3A%2F%2Fdailydressme.com%2Fassets%2F200x%2Cq90%2F57eec2aa2ac4b49e914d0c52d5744096%2F3bd9df29%2FAlpinePulloverFreePeoplebrand-FreePeople.jpg&w=3840&q=75",
+];
 
-
-
+var itemHtmlStrings = [];
+var indicatorsHtmlStrings = []
+for(var i=0 ; i< sources.length ; i++) {
+  var itemHtmlString = ''
+    +'<div class="carousel-item">'
+    + `<img class="d-block w-100" `
+    +       ` src="${sources[i]}" alt="Slide ${i}">`
+    +  `<div class="carousel-caption">`
+    +  '</div>'
+    +'</div>'
+  itemHtmlStrings.push(itemHtmlString);
+  var itemIndicator = '<li data-target="#myCarousel" data-slide-to="' + i + '"></li>';
+  indicatorsHtmlStrings.push(itemIndicator);
+}
+var myCarouselEl = document.getElementById("myCarousel");
+var carouselInnerEl = myCarouselEl.getElementsByClassName("carousel-inner")[0];
+var carouselIndicator = myCarouselEl.getElementsByClassName("carousel-indicators")[0];
+carouselInnerEl.innerHTML = itemHtmlStrings.join("\n");
+carouselIndicator.innerHTML = indicatorsHtmlStrings.join("\n");
+carouselInnerEl.firstElementChild.className += " active";
+carouselIndicator.firstElementChild.className = " active";
+$(myCarouselEl).carousel({slide : true, ride : true });
 

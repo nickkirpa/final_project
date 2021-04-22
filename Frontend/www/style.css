@@ -966,7 +966,7 @@ form textarea {
 
   th.visible-md,
   td.visible-md {
-    display: table-cell !important; } }
+    display: table-cell !important; } 
 
 
   table.visible-lg {
@@ -977,7 +977,7 @@ form textarea {
 
   th.visible-lg,
   td.visible-lg {
-    display: table-cell !important; } }
+    display: table-cell !important; } 
 
 @media print {
   .visible-print {
@@ -1578,8 +1578,13 @@ form textarea {
 .main-content {
     background-color: dimgray;
 }
-
-
+.carousel-main{
+  padding-left: 12.5%;
+  padding-right: 12.5%;
+}
+.carousel-item{
+  height: auto!important;
+}
     
 
 #map {
