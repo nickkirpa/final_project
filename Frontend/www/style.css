@@ -1,22 +1,19 @@
-/*!
- * Project_Name: Weather
- * Author: Themezy
- * Email: contact[at]themezy.com
- * Url: http://www.themezy.com
- */
-/*=========================================== 
- * Importing CSS Libraries
- *===========================================*/
+
 #what{
-    margin-left: 40%;
-    margin-top:20px;
     float:right;
+    text-align: right;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    color: white;
+    padding-right: 10px;
 }
 
 #event{
     float:right;
-    margin-left:40%;
-    margin-bottom:5px;
+   display: inline-block;
+     padding-right: 10px;
+    color:cornflowerblue
 }
 article,
 aside,
@@ -1025,16 +1022,19 @@ form textarea {
       vertical-align: middle; }
     .site-header .branding .logo {
       margin-right: 10px; }
-    .site-header .branding .site-title {
-      margin-bottom: 5px;
-      font-size: 16px;
-      font-size: 1.1428571429em;
+    .site-title {
+      padding-left: 5px;
+      font-size: 1.5em;
+      color: white; 
+        display: inline-block;
+        box-sizing: border-box
+            
+}
+   .site-description {
+        padding-left: 5px;
+      font-size: 1.4em;
+      display: inline-block;
       color: white; }
-    .site-header .branding .site-description {
-      font-size: 10px;
-      font-size: 0.7142857143em;
-      display: block;
-      color: #bfc1c8; }
 
 .main-navigation {
   float: right; }
@@ -1110,8 +1110,8 @@ form textarea {
 
 .hero {
    background-color: dimgray;
-  padding: 70px 0;
-  min-height: 220px; }
+ 
+ }
 
 .find-location {
   position: relative;
@@ -1645,7 +1645,7 @@ background: rgba(0, 0, 0, 0.1);
 
 .pop {
     padding-right: 15px;
-   
+    padding-bottom: 10px;
 }
 
 
@@ -1660,3 +1660,73 @@ background: rgba(0, 0, 0, 0.1);
 }
 
 
+
+.find-loc {
+   padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+
+
+
+
+#geoloc {
+         border: none;
+  background: #009ad8;
+  padding: 10px 20px;
+    width: 100px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+    line-height: 35px;
+    text-align: center;
+}
+
+.wind {
+    padding-bottom: 15px;
+}
+
+.header {
+    background-color: lightskyblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: auto;
+    background-image: url("images/panorama-sunny.jpg")
+}
+
+#inputEmail {
+    outline: none;
+  border: none;
+  padding: 10px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+#sbm {
+     border: none;
+  background: #009ad8;
+  padding: 10px 20px;
+    width: 100px;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  color: white;
+}
+
+.temp {
+    padding-bottom: 10px;
+}
+.degree img{
+    padding-right: 5px;
+}
+.sun {
+ width:80px;
+display: inline-block;
+    vertical-align: middle;
+        
+}
+
+.texts {
+width:calc(100% - 85px);
+display: inline-block;
+    vertical-align: middle
+}

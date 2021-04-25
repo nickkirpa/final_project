@@ -1,36 +1,39 @@
 /* global require */
 let autocomplete;
 
-let map;
+let map, infoWindow;
+
 var globalDate;
 var globalData;
 var globalI;
 var modI;
 var today = new Date()
 
-$.getJSON('http://history.muffinlabs.com/date/'+ (today.getMonth() + 1) +'/'+(today.getDate()), function(data){
+$.getJSON('http://history.muffinlabs.com/date/' + (today.getMonth() + 1) + '/' + (today.getDate()), function (data) {
     var what_happened = data;
-    var month = parseInt(today.getMonth()+1)
-    if (month < 10){
+    var month = parseInt(today.getMonth() + 1)
+    if (month < 10) {
         month = "0" + month;
     }
-    $('#what').text($('#what').text() + ' ' + today.getDate() + '/' + month + ' в ' + what_happened['data']['Events'][what_happened['data']['Events'].length-1]['year'] + ' році')
-    $('#event').text(what_happened['data']['Events'][what_happened['data']['Events'].length-1]['links'][0]['title'])
+    $('#what').text($('#what').text() + ' ' + today.getDate() + '/' + month + ' в ' + what_happened['data']['Events'][what_happened['data']['Events'].length - 1]['year'] + ' році')
+    $('#event').text(what_happened['data']['Events'][what_happened['data']['Events'].length - 1]['links'][0]['title'])
     a = document.getElementById('event')
-    a.href = String(what_happened['data']['Events'][what_happened['data']['Events'].length-1]['links'][0]['link'])
+    a.href = String(what_happened['data']['Events'][what_happened['data']['Events'].length - 1]['links'][0]['link'])
     console.log(what_happened);
 });
 
 
 
 function getNfillForecast(lat, lng) {
+
+
     var curentDate = new Date();
     console.log(new Date());
     console.log(curentDate.getHours());
     globalI = defineIter(curentDate.getHours());
     console.log(globalI);
 
-    
+
 
 
     $.getJSON('http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lng + '&cnt=' + globalI + '&units=metric&appid=f1c4ea79129faeebfbac6455394d7b12', function (data) {
@@ -86,8 +89,20 @@ function getNfillForecast(lat, lng) {
 
 
     });
+    const scr = document.querySelector("#myWrap");
 
-}
+    function scrollToFor() {
+        scr.scrollIntoView({
+            block: "center",
+
+            behavior: 'smooth'
+        });
+
+
+    }
+    setTimeout(scrollToFor, 700);
+};
+
 
 
 
@@ -205,12 +220,51 @@ function defineIter(hours) {
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         center: {
-            lat: 50.464379,
-            lng: 30.519131
+            lat: 49.06709037683751,
+            lng: 32.21415861549619
         },
-        zoom: 15,
+        zoom: 6,
     });
+
     var startPoint = new google.maps.LatLng(50.464379, 30.519131);
+    var homeMarker = new google.maps.Marker({
+        position: startPoint,
+        map: map,
+    });
+    infoWindow = new google.maps.InfoWindow();
+
+    $("#geoloc").click(function () {
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    };
+                    var ad = document.getElementById('inputAddress');
+                    geocodeLatLng(pos, function (err, adress) {
+                        if (!err) {
+                            ad.value = adress;
+                        };
+                    });
+                    map.setZoom(14);
+                    homeMarker.setPosition(pos);
+                    homeMarker.setVisible(true);
+                    getNfillForecast(pos.lat, pos.lng);
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+
+                },
+                () => {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                }
+            );
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    });
 
 
 
@@ -225,10 +279,7 @@ function initMap() {
 
     document.getElementById("inputAddress").addEventListener("change", onPlaceChanged);
 
-    var homeMarker = new google.maps.Marker({
-        position: startPoint,
-        map: map,
-    });
+
     homeMarker.setVisible(false);
 
     function onPlaceChanged() {
@@ -332,17 +383,17 @@ var sources = [
 
 var itemHtmlStrings = [];
 var indicatorsHtmlStrings = []
-for(var i=0 ; i< sources.length ; i++) {
-  var itemHtmlString = ''
-    +'<div class="carousel-item">'
-    + `<img class="d-block w-100" `
-    +       ` src="${sources[i]}" alt="Slide ${i}">`
-    +  `<div class="carousel-caption">`
-    +  '</div>'
-    +'</div>'
-  itemHtmlStrings.push(itemHtmlString);
-  var itemIndicator = '<li data-target="#myCarousel" data-slide-to="' + i + '"></li>';
-  indicatorsHtmlStrings.push(itemIndicator);
+for (var i = 0; i < sources.length; i++) {
+    var itemHtmlString = '' +
+        '<div class="carousel-item">' +
+        `<img class="d-block w-100" ` +
+        ` src="${sources[i]}" alt="Slide ${i}">` +
+        `<div class="carousel-caption">` +
+        '</div>' +
+        '</div>'
+    itemHtmlStrings.push(itemHtmlString);
+    var itemIndicator = '<li data-target="#myCarousel" data-slide-to="' + i + '"></li>';
+    indicatorsHtmlStrings.push(itemIndicator);
 }
 var myCarouselEl = document.getElementById("myCarousel");
 var carouselInnerEl = myCarouselEl.getElementsByClassName("carousel-inner")[0];
@@ -351,5 +402,44 @@ carouselInnerEl.innerHTML = itemHtmlStrings.join("\n");
 carouselIndicator.innerHTML = indicatorsHtmlStrings.join("\n");
 carouselInnerEl.firstElementChild.className += " active";
 carouselIndicator.firstElementChild.className = " active";
-$(myCarouselEl).carousel({slide : true, ride : true });
+$(myCarouselEl).carousel({
+    slide: true,
+    ride: true
+});
 
+
+
+
+var API_URL = "http://localhost:5050";
+
+function backendPost(url, data, callback) {
+    $.ajax({
+        type: 'Post',
+        url: API_URL + url,
+
+        data: JSON.stringify({
+            "email": data
+        }, ),
+        contentType: "application/json",
+        error: function () {
+            callback(new Error("Ajax Failed"));
+        }
+
+    })
+}
+
+
+$("#sbm").click(function () {
+    console.log($("#inputEmail").val());
+    event.preventDefault();
+    $.ajax({
+        url: "/insert/",
+        data: $("#inputEmail").val(),
+        method: "post",
+        // error: function(x, y, z){},
+        success: function (response) {
+            console.log(response);
+        },
+
+    })
+});
