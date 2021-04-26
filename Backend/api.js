@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var cron = require('node-cron');
-
+var nodemailer = require('nodemailer');
 
 var SubsSchema;
 var Subs;
@@ -54,7 +54,7 @@ async function sendAll(subj,mess) {
     });
 };
 exports.sendAll = sendAll;
-var nodemailer = require('nodemailer');
+
 
 async function send(subj, mess, to) {
     const mailfrom = 'odiagpopogodi@gmail.com'; //emailAccount@maildomen.dom, //DISABLE SECURITY IN GOOGLE
@@ -82,7 +82,10 @@ async function send(subj, mess, to) {
 
 exports.send = send;
 
-
+function createDoc(req,res){
+    console.log(req);
+};
+exports.createDoc = createDoc;
 
 exports.saveE = function saveE(req, res) {
     const tempSplit = JSON.stringify(req.body).split('"', 3);
@@ -112,9 +115,9 @@ exports.saveE = function saveE(req, res) {
                         console.log("successfully added to db");
                     }
                 });
-                res.send("Inserted into db");
+                res.send("You subscribed");
             }
-            if (result) res.send("Such document already exist");
+            if (result) res.send("Such email already exist in database");
         }
     });
 

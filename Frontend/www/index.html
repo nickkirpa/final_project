@@ -5,8 +5,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
     <link rel="icon" type="image/png" href="images/icon-umberella.png">
 
 
@@ -25,30 +24,34 @@
 
 <body id='body'>
 
+
     <div class="site-content">
         <div class="header">
-                <div class="sun"><img  src="images/icons/sun.svg" alt="" class="logo"></div>
-                <div class="texts">
-                    <div>
-                        <span class="site-title" id="tr">Одяг</span>
-                        <span id='what'>Сьогодні, </span>
-                    </div>
-                    <div>
-                        <small class="site-description">по погоді</small>
-                        <a id='event' href=''></a>
-                    </div>
+            <span id="google_translate_element"></span>
+            <div class="sun"><img src="images/icons/sun.svg" alt="" class="logo"></div>
+            <div class="texts">
+                <div>
+                    <span class="site-title" id="tr">Одяг</span>
+                    <span id='what'>Сьогодні, </span>
+                </div>
+                <div>
+                    <small class="site-description">по погоді</small>
+                    <a id='event' href=''></a>
                 </div>
             </div>
+        </div>
 
-      
 
 
+        <div class="girl d-flex justify-content-center align-items-center">
+            <span class="preview">Знайдіть одяг, що пасує<br>вам до погоди в 1 клік</span>
+        </div>
         <div class="hero">
             <div class="container find-loc">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="inputAddress" placeholder="Find your location...">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Знайти де я знаходжусь...">
                     <div class="input-group-append">
-                        <span id="geoloc" class="btn btn-primary">Geolocate</span>
+                        <span id="geoloc" class="btn">Знайти мене</span>
                     </div>
                 </div>
 
@@ -70,18 +73,18 @@
                                     <div class="location invisible">New York</div>
                                     <div class="num">23<sup>o</sup>C</div>
                                     <div class="degree">
-
                                         <div class="forecast-icon">
                                             <img class="condition" src="images/icons/icon-1.svg" alt="">
                                         </div>
-
-
                                     </div>
                                     <span class="invisible pop"><img src="images/icon-umberella.png" alt="">20%</span>
                                     <span class="invisible wind"><img src="images/icon-wind.png" alt="">18km/h</span>
-
+                                    <button class="scrollTotime d-none"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                        </svg></button>
                                 </div>
                             </div>
+
                             <div class="forecast col" id="day2">
                                 <div class="forecast-header">
                                     <div class="day d-none">Monday</div>
@@ -98,7 +101,9 @@
                                     </div>
                                     <span class="invisible pop"><img src="images/icon-umberella.png" alt="">20%</span>
                                     <span class="invisible wind"><img src="images/icon-wind.png" alt="">18km/h</span>
-
+                                    <button class="scrollTotime d-none"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                        </svg></button>
                                 </div>
                             </div>
                             <div class="forecast col" id="day3">
@@ -117,7 +122,9 @@
                                     </div>
                                     <span class="invisible pop"><img src="images/icon-umberella.png" alt="">20%</span>
                                     <span class="invisible wind"><img src="images/icon-wind.png" alt="">18km/h</span>
-
+                                    <button class="scrollTotime d-none"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                        </svg></button>
                                 </div>
                             </div>
                             <div class="forecast col" id="day4">
@@ -136,7 +143,9 @@
                                     </div>
                                     <span class="invisible pop"><img src="images/icon-umberella.png" alt="">20%</span>
                                     <span class="invisible wind"><img src="images/icon-wind.png" alt="">18km/h</span>
-
+                                    <button class="scrollTotime d-none"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                        </svg></button>
                                 </div>
                             </div>
                             <div class="forecast col" id="day5">
@@ -155,7 +164,9 @@
                                     </div>
                                     <span class="invisible pop"><img src="images/icon-umberella.png" alt="">20%</span>
                                     <span class="invisible wind"><img src="images/icon-wind.png" alt="">18km/h</span>
-
+                                    <button class="scrollTotime d-none"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                        </svg></button>
                                 </div>
                             </div>
 
@@ -315,10 +326,13 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <main class="main-content d-none">
+
             <!-- Carousel wrapper -->
             <div class="carousel-main">
+
                 <div class="w-100 h-50">
                     <div id="myCarousel" class="carousel slide">
                         <ol class="carousel-indicators">
@@ -334,20 +348,28 @@
                     </div>
                 </div>
             </div>
+            <div class="container" id="videoC">
+          
+            </div>
         </main> <!-- .main-content -->
 
         <footer class="site-footer">
             <div class="container">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="inputEmail" name="username" placeholder="Enter your email to subscribe..." required>
+                    <input type="text" class="form-control" id="inputEmail" name="username" placeholder="Введіть електронну пошту, щоб підписатись..." required>
                     <div class="input-group-append">
-                        <button id="sbm">SUBMIT</button>
+                        <button id="sbm">Підписатись</button>
                     </div>
                 </div>
 
             </div>
         </footer> <!-- .site-footer -->
     </div>
+
+
+
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- jQuery JavaScript -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
 

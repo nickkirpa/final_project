@@ -13,7 +13,8 @@
     float:right;
    display: inline-block;
      padding-right: 10px;
-    color:cornflowerblue
+    color:mediumpurple;
+    font-weight: 700
 }
 article,
 aside,
@@ -1109,7 +1110,7 @@ form textarea {
         color: #009ad8; }
 
 .hero {
-   background-color: dimgray;
+   background-color: #262936;
  
  }
 
@@ -1135,7 +1136,7 @@ form textarea {
   background-color: lightskyblue;
     border-top-left-radius: 10px;
      border-top-right-radius: 10px;
-  margin-top: 50px;
+  margin-top: 0px;
   margin-bottom: 0px; }
   .forecast-container .forecast {
     
@@ -1576,11 +1577,11 @@ form textarea {
       color: white; }
 
 .main-content {
-    background-color: dimgray;
+    background-color: #262936;
 }
 .carousel-main{
-  padding-left: 12.5%;
-  padding-right: 12.5%;
+  padding-left: 35%;
+  padding-right: 35%;
 }
 .carousel-item{
   height: auto!important;
@@ -1590,7 +1591,7 @@ form textarea {
 #map {
     height: 600px;
     text-align: center;
-    padding-top:300px;
+  
     font-size:48px;
 }
 
@@ -1603,6 +1604,7 @@ form textarea {
 
 .forecast-table {
    display:none;
+    padding-top: 50px;
 }
 
 .time-for {
@@ -1673,12 +1675,10 @@ background: rgba(0, 0, 0, 0.1);
 #geoloc {
          border: none;
   background: #009ad8;
-  padding: 10px 20px;
-    width: 100px;
+  padding: 10px;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
   color: white;
-    line-height: 35px;
     text-align: center;
 }
 
@@ -1691,7 +1691,7 @@ background: rgba(0, 0, 0, 0.1);
     padding-top: 10px;
     padding-bottom: 10px;
     height: auto;
-    background-image: url("images/panorama-sunny.jpg")
+    background-color: #262936;
 }
 
 #inputEmail {
@@ -1706,7 +1706,7 @@ background: rgba(0, 0, 0, 0.1);
      border: none;
   background: #009ad8;
   padding: 10px 20px;
-    width: 100px;
+    width: 150px;
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
   color: white;
@@ -1722,6 +1722,7 @@ background: rgba(0, 0, 0, 0.1);
  width:80px;
 display: inline-block;
     vertical-align: middle;
+    padding-left: 5px;
         
 }
 
@@ -1729,4 +1730,105 @@ display: inline-block;
 width:calc(100% - 85px);
 display: inline-block;
     vertical-align: middle
+}
+
+#google_translate_element {
+   position:absolute;
+    bottom:10px;
+    left: calc(50% - 50px);
+    text-align: center;
+}
+
+
+
+.girl {
+    background-image: url("images/snow_gos.gif");
+    height:600px;
+   
+}
+
+.preview {
+        text-align: center;
+    color:white;
+    font-family:fantasy;
+    font-size: 64px;
+    font-weight: bold;
+
+}
+
+@media screen and (min-width: 750px) {
+    .scrollTotime {
+        display:none;
+    }
+}
+@media screen and (max-width: 1900px) {
+    .carousel-main {
+         padding-left: 35%;
+  padding-right: 35%;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .carousel-main {
+         padding-left: 30%;
+  padding-right: 30%;
+    }
+}
+@media screen and (max-width: 900px) {
+    .carousel-main {
+         padding-left: 20%;
+  padding-right: 20%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .carousel-main {
+         padding-left: 0%;
+  padding-right: 0%;
+    }
+}
+@media screen and (max-width: 450px) {
+    .carousel-main {
+         padding-left: 0%;
+  padding-right: 0%;
+    }
+}
+
+.scrollTotime {
+    border: none;
+    width:60px;
+    height: 60px;
+    background-color:white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: calc(50% - 30px);
+    right: 25px;
+  
+    
+}
+
+#myWrap {
+    background-image: url("images/gosling_um.jpg");
+}
+
+@media screen and (min-width: 750px) {
+    .video {
+    
+         width: 780px;
+        height: 435px;
+            left:calc(50% - 390px);
+    }
+}
+@media screen and (max-width: 749px) {
+    .video {
+           width: 520px;
+        height: 290px;
+            left:calc(50% - 260px);
+    }
+}
+
+
+.video {
+    position: relative;
+
+
 }
